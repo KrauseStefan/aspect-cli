@@ -80,6 +80,7 @@ http_archive(
     patches = [
         "//patches:com_grail_bazel_toolchain.patch",
         "//patches:com_grail_bazel_toolchain.001.patch",
+        "//patches:com_grail_bazel_toolchain.Support-os-release-file-with-comments.patch",
     ],
     sha256 = "a9fc7cf01d0ea0a935bd9e3674dd3103766db77dfc6aafcb447a7ddd6ca24a78",
     strip_prefix = "toolchains_llvm-c65ef7a45907016a754e5bf5bfabac76eb702fd3",

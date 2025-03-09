@@ -1,0 +1,25 @@
+From c8973e6a5f5e1840fac3b580ed6cb4ebbd2cae12 Mon Sep 17 00:00:00 2001
+From: KrauseStefan <stefan.krausekjaer@gmail.com>
+Date: Sun, 9 Mar 2025 22:20:04 +0100
+Subject: [PATCH] Support os-release-file with comments
+
+---
+ toolchain/internal/common.bzl | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/toolchain/internal/common.bzl b/toolchain/internal/common.bzl
+index 542c99e..6a73bb9 100644
+--- a/toolchain/internal/common.bzl
++++ b/toolchain/internal/common.bzl
+@@ -47,6 +47,8 @@ def _linux_dist(rctx):
+     info = {}
+     for l in res.stdout.splitlines():
+         parts = l.split("=", 1)
++        if len(parts) == 1:
++            continue
+         info[parts[0]] = parts[1]
+ 
+     distname = info["ID"].strip('\"')
+-- 
+2.48.1
+
